@@ -1,7 +1,6 @@
 package com.example.inovimap.repository
 
 import com.example.inovimap.datasource.LoginDataSource
-import com.example.inovimap.datasource.LoginDataSourceImpl
 
 class LoginRepositoryImpl(
     private val loginDataSource: LoginDataSource

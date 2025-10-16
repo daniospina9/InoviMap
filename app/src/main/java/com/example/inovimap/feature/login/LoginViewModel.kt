@@ -2,6 +2,8 @@ package com.example.inovimap.feature.login
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.inovimap.domain.login.usecases.ValidateEmail
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -9,13 +11,17 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 data class LoginState(
     val user: String = "",
     val password: String = ""
 )
 
-class LoginViewModel: ViewModel() {
+@HiltViewModel
+class LoginViewModel @Inject constructor(
+    private val validateEmail: ValidateEmail
+): ViewModel() {
 
     private val _state = MutableStateFlow(LoginState())
     val state = _state.asStateFlow()
@@ -33,11 +39,23 @@ class LoginViewModel: ViewModel() {
 
     fun navigateToMap() {
         viewModelScope.launch(Dispatchers.IO) {
-            _events.send(Event.NavigateToMap)
+            val user = _state.value.user
+            val password = _state.value.password
+            val validatedUser = validateEmail(user)
+            if (validatedUser == null) {
+                if (password.isBlank()) {
+                    _events.send(Event.ShowMessage("La contraseña no puede estar vacía"))
+                } else {
+                    _events.send(Event.NavigateToMap)
+                }
+            } else {
+                _events.send(Event.ShowMessage(validatedUser))
+            }
         }
     }
 
     sealed class Event{
         data object NavigateToMap: Event()
+        data class ShowMessage(val message: String): Event()
     }
 }

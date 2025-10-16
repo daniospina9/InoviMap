@@ -11,11 +11,11 @@ class LoginDataSourceImpl(): LoginDataSource {
         fun isValidEmail(email: String) = Pattern.compile(EMAIL_PATTERN).matcher(email).matches()
 
         if (email.isBlank()) {
-            return "The email can't be blank"
+            return "El correo no puede estar vacío"
         }
 
         if (!isValidEmail(email)) {
-            return "That's not a valid email"
+            return "El correo no es válido"
         }
 
         return null
