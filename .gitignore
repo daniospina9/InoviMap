@@ -1,0 +1,120 @@
+# ==============================
+# ANDROID / JETPACK COMPOSE PROJECT
+# ==============================
+
+# Gradle
+.gradle/
+**/build/
+!gradle/wrapper/gradle-wrapper.jar
+
+# Local configuration
+local.properties
+secret.properties
+google-services.json
+google_maps_api.xml
+
+# Android Studio / IntelliJ
+.idea/
+*.iml
+*.iws
+*.ipr
+.idea/caches/
+.idea/libraries/
+.idea/modules.xml
+.idea/workspace.xml
+.idea/navEditor.xml
+.idea/assetWizardSettings.xml
+.idea/deploymentTargetDropDown.xml
+.idea/deploymentTargetSelector.xml
+
+# Jetpack Compose previews
+.compose-cache/
+
+# Keystore files
+*.jks
+*.keystore
+*.pem
+*.key
+
+# Build outputs
+*.apk
+*.aab
+*.ap_
+*.dex
+*.class
+bin/
+gen/
+out/
+obj/
+
+# Logs and temp
+*.log
+*.tmp
+*.swp
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Firebase / Crashlytics
+crashlytics-build.properties
+fabric.properties
+
+# ==============================
+# NODE.JS BACKEND (EXPRESS SERVER)
+# ==============================
+
+# Dependencies
+/server/node_modules/
+server/node_modules/
+
+# Environment variables
+/server/.env
+/server/.env.*
+server/.env
+server/.env.*
+
+# Build output
+/server/dist/
+/server/build/
+/server/coverage/
+/server/logs/
+server/dist/
+server/build/
+server/coverage/
+server/logs/
+
+# npm / yarn
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# IDE / Editor config
+server/.idea/
+server/.vscode/
+.vscode/
+
+# Package locks (optional)
+# Descomenta si usas diferentes gestores de paquetes
+# /server/package-lock.json
+# /server/yarn.lock
+# /server/pnpm-lock.yaml
+
+# ==============================
+# GENERAL
+# ==============================
+
+# OS files
+*.bak
+*.orig
+*.rej
+*.swo
+*.swp
+*.tmp
+*.temp
+*~
+
+# Env files global
+.env
+.env.*
