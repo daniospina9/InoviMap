@@ -9,18 +9,37 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.NavController
+import com.example.inovimap.navigation.map.MapRoute
 
 @Composable
 fun LoginScreen(
-    viewModel: LoginViewModel = viewModel()
+    viewModel: LoginViewModel = viewModel(),
+    navController: NavController
 ) {
+    val context = LocalContext.current
+
     val state by viewModel.state.collectAsStateWithLifecycle()
+
+    LaunchedEffect(key1 = context) {
+        viewModel.events.collect { event ->
+            when (event) {
+                is LoginViewModel.Event.NavigateToMap -> {
+                    navController.navigate(
+                        MapRoute
+                    )
+                }
+            }
+        }
+    }
 
     Scaffold { innerPadding ->
         Column(
@@ -57,7 +76,9 @@ fun LoginScreen(
                 }
             )
             Button(
-                onClick = {}
+                onClick = {
+                    viewModel.navigateToMap()
+                }
             ) {
                 Text(
                     text = "Iniciar Sesión"

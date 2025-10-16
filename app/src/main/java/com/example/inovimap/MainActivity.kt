@@ -4,7 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import com.example.inovimap.feature.login.LoginScreen
+import com.example.inovimap.navigation.NavigationHost
 import com.example.inovimap.ui.theme.InoviMapTheme
 
 class MainActivity : ComponentActivity() {
@@ -13,7 +13,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             InoviMapTheme {
-                LoginScreen()
+                NavigationHost()
             }
         }
     }
