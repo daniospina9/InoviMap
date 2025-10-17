@@ -148,6 +148,12 @@ cd InoviMap
 
     1. Ve a (https://dashboard.ngrok.com) y crea una cuenta para obtenmer gratis tu authtoken
     2. una vez tengas tu authtoken pon el siguiente comando en la terminal:
+
+    ```bash
+npm install g ngrok
+```
+
+Y luego este
     
 ```bash
 ngrok config add authtoken YOUR_AUTHTOKEN
@@ -186,6 +192,7 @@ En el server.js del proyecto hay 2 usuarios configurados por defecto, esto con e
 - email: 'androidev@hotmail.com', password: 'new_project', latitude: 4.6097, longitude: -74.0817
 
 Si te quieres divertir un poco, prueba a poner el ususario "danielos@gmail.com" para que veas cómo su configuración por defecto aparece en Francia
+
 
 
 
