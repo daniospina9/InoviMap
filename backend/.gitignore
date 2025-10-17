@@ -1,0 +1,102 @@
+# Node modules
+/node_modules/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+*.log
+logs/
+logs/*.log
+
+# Environment files (secrets)
+.env
+.env.*             # permite .env.example pero ignora .env.local, .env.production, etc.
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+secrets.env
+
+# Build / runtime output
+/dist/
+/build/
+/out/
+/coverage/
+/.nyc_output/
+/bower_components/
+/lib/
+/tmp/
+/temp/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE / editors
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# npm / package managers
+package-lock.json
+yarn.lock
+.pnp.cjs
+.pnp.js
+.pnpm-debug.log
+
+# Caches
+.cache/
+.parcel-cache/
+.next/            # si en algún momento hay front dentro del repo
+.cache-loader/
+
+# Test reports
+/coverage/
+/test-results/
+
+# Process files
+*.pid
+*.seed
+pids/
+*.pid.lock
+
+# Docker
+docker-compose.override.yml
+.docker/
+
+# Static/uploads (si manejas archivos subidos localmente)
+uploads/
+tmp_uploads/
+
+# Certificates / keys
+*.pem
+*.key
+*.crt
+
+# Serverless / cloud deploy artifacts
+.serverless/
+.vercel/
+.firebase/
+.now/
+netlify.toml
+
+# Misc
+*.log
+*.sql
+*.sqlite
+.vagrant/
+.idea/
+*.iml
+
+# Optional: TypeScript build output
+*.tsbuildinfo
+/dist/
+/build/
+
+# Optional: if using PM2
+pm2.config.js
+pm2-logrotate.json
