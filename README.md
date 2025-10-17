@@ -143,6 +143,7 @@ cd InoviMap
 ```bash
 ngrok config add authtoken YOUR_AUTHTOKEN
 ngrok http 3000
+```
 
     3. En este punto tu servidor ya debería estar lanzado, así que tienes que ir a la respuesta de la terminal y copiar la URL pública, que está en la sección de Forwarding
     4. Una vez tengas tu URL, debes dirigirte di (de inyección de dependencias) dentro del proyecto al módulo "ServeModule" y pegar esta URL en la inyección de Retrofit:
@@ -154,6 +155,29 @@ fun provideRetrofit(): Retrofit = Retrofit.Builder()
 .baseUrl("Tu_URL")
 .addConverterFactory(GsonConverterFactory.create(GsonBuilder().create()))
 .build()
+```
+
+### 5. 🌐 Lanzar el servidor
+
+Bien, con esto ya estás listo para poner a funcionar el servidor local, pero recuerda que antes, debes tener instalado node.js en tu computador. Si ya lo tienes, debes ir a la terminal en la raíz del proyecto y correr los siguintes comandos:
+
+    ```bash
+cd backend
+node server.js
+```
+
+Y listo ya con esto puedes correr la aplicación normalmente
+
+
+### 6. Usuarios ya creados por defecto
+
+En el server.js del proyecto hay 2 usuarios configurados por defecto, esto con el objeivo de que se compruebe un login exitoso de usuarios existentes, pero si colocásemos un usuario nuevo, este se va a crear y se va a almacenar dentro de nuestro servidor. A los nuevos usuarios se les establece una ubicación por defecto al navegar al mapa, la cual aparece con un marcador dentro de la ciudad configurada por defecto que en este caso es Bogotá. A continuación los 2 usuarios ya existentes:
+
+- email: 'danielos@gmail.com', password: '123456', latitude: 48.8566, longitude: 2.3522
+- email: 'androidev@hotmail.com', password: 'new_project', latitude: 4.6097, longitude: -74.0817
+
+Si te quieres divertir un poco, prueba a poner el ususario "danielos@gmail.com" para que veas cómo su configuración por defecto aparece en Francia
+
 
 
 
