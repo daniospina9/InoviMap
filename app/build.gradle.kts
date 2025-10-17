@@ -1,3 +1,6 @@
+import java.io.FileInputStream
+import java.util.Properties
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
@@ -10,6 +13,10 @@ plugins {
     id("com.google.dagger.hilt.android")
 
 }
+
+val secretPropertiesFile = rootProject.file("secret.properties")
+val secretProperties = Properties()
+secretProperties.load(FileInputStream(secretPropertiesFile))
 
 android {
     namespace = "com.example.inovimap"
@@ -25,6 +32,9 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField("String", "API_KEY_MAPS", "\"${secretProperties["API_KEY_MAPS"]}\"")
+
     }
 
     buildTypes {
