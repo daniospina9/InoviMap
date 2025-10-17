@@ -20,11 +20,11 @@ class LoginDataSourceImpl(
         fun isValidEmail(email: String) = Pattern.compile(EMAIL_PATTERN).matcher(email).matches()
 
         if (email.isBlank()) {
-            return "El correo no puede estar vacío"
+            return "Email cannot be empty"
         }
 
         if (!isValidEmail(email)) {
-            return "El correo no es válido"
+            return "Email is not valid"
         }
 
         return null
@@ -49,7 +49,7 @@ class LoginDataSourceImpl(
             )
         } catch (e: Exception) {
             LoginResponse(
-                message = e.message.orEmpty().ifEmpty { "Ocurrió un error desconocido" },
+                message = e.message.orEmpty().ifEmpty { "An unknown error occurred" },
                 user = null
             )
         }
