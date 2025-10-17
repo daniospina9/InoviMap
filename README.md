@@ -143,8 +143,19 @@ cd InoviMap
         ```bash
             ngrok config add authtoken YOUR_AUTHTOKEN
             ngrok http 3000
-        ```
-    3. 
+```
+    3. En este punto tu servidor ya debería estar lanzado, así que tienes que ir a la respuesta de la terminal y copiar la URL pública, que está en la sección de Forwarding
+    4. Una vez tengas tu URL, debes dirigirte di (de inyección de dependencias) dentro del proyecto al módulo "ServeModule" y pegar esta URL en la inyección de Retrofit:
+        ```bash
+    @Singleton
+    @Provides
+    fun provideRetrofit(): Retrofit = Retrofit.Builder()
+        .baseUrl("Tu_URL")
+        .addConverterFactory(GsonConverterFactory.create(GsonBuilder().create()))
+        .build()
+```
+
+
 
 
 
