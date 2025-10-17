@@ -92,4 +92,11 @@ dependencies {
     //Google Maps
     implementation(libs.maps.compose)
     implementation(libs.play.services.maps)
+
+    // retrofit
+    implementation(libs.retrofit)
+    implementation(libs.converter.gson)
+
+    //coroutines
+    implementation(libs.kotlinx.coroutines.android)
 }
