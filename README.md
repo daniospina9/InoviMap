@@ -16,6 +16,7 @@ Este proyecto cumple los requerimientos de la prueba técnica para desarrollar u
 
 ## 🧩 Código fuente
 
+<pre> ```text
 InoviMap/
 ├── .gitignore
 ├── build.gradle.kts
@@ -104,7 +105,8 @@ InoviMap/
     ├── .gitignore
     ├── package.json
     ├── package-lock.json           
-    └── server.js       
+    └── server.js     
+``` </pre>
 
 ## ⚙️ Instrucciones para ejecutar el proyecto localmente
 
@@ -133,3 +135,4 @@ cd InoviMap
   2. dentro de "secret.properties" debes colocar la siguiente línea  de código:
         API_KEY_MAPS=Tu_API_KEY
   3. 
+
