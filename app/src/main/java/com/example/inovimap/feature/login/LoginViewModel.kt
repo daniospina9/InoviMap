@@ -46,7 +46,7 @@ class LoginViewModel @Inject constructor(
             val validatedUser = validateEmail(user)
             if (validatedUser == null) {
                 if (password.isBlank()) {
-                    _events.send(Event.ShowMessage("La contraseña no puede estar vacía"))
+                    _events.send(Event.ShowMessage("Password cannot be empty"))
                 } else {
                     val serverResponse = getServerResponse(email = user, password = password)
                     val messageResponse = serverResponse.message

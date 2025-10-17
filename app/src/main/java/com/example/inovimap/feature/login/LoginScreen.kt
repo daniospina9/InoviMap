@@ -142,14 +142,14 @@ fun LoginScreen(
                 shape = RoundedCornerShape(10.dp)
             ) {
                 Text(
-                    text = "Iniciar Sesión",
+                    text = "Login",
                     color = Color.White,
                     fontWeight = FontWeight.ExtraBold
                 )
             }
             Spacer(modifier = Modifier.weight(0.48f))
             Text(
-                text = "Todos los derechos reservados 2025",
+                text = "All rights reserved © 2025",
                 color = Color.White
             )
         }
