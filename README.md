@@ -193,6 +193,19 @@ En el server.js del proyecto hay 2 usuarios configurados por defecto, esto con e
 
 Si te quieres divertir un poco, prueba a poner el ususario "danielos@gmail.com" para que veas cómo su configuración por defecto aparece en Francia
 
+## 🛠️ Technologies Used
+- **Kotlin** → Main development language.  
+- **Android SDK** → Mobile development framework.  
+- **Coroutines** → Asynchronous and reactive programming.
+- **Dagger Hilt** → Dependency Injection
+- **Retrofit** → REST API client for fetching exchange rates.  
+- **ViewModel (Jetpack)** → Lifecycle-aware state management.
+- **NavigationHost** → Navigation between Screens.
+- **Clean Architecture + MVVM** → Clear separation of concerns and modular design.
+- **Google Maps SDK for Android (Compose)** → Interactive map with marker and camera control.
+- **Node.js + Express.js** → Simple REST API backend for authentication and coordinate response.
+- **Ngrok** → Tunneling tool for testing backend connectivity from Android devices.
+
 
 
 
