@@ -14,6 +14,14 @@ Este proyecto cumple los requerimientos de la prueba técnica para desarrollar u
 
 ---
 
+## 🎥 Demo in Action
+
+<p align="center">
+  <img src="assets/demo_hd.gif" alt="GeYuGoApp Demo" width="270"/>
+</p>
+
+---
+
 ## 🧩 Código fuente
 
 <pre> ```text
@@ -178,6 +186,7 @@ En el server.js del proyecto hay 2 usuarios configurados por defecto, esto con e
 - email: 'androidev@hotmail.com', password: 'new_project', latitude: 4.6097, longitude: -74.0817
 
 Si te quieres divertir un poco, prueba a poner el ususario "danielos@gmail.com" para que veas cómo su configuración por defecto aparece en Francia
+
 
 
 
