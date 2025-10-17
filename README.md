@@ -31,10 +31,10 @@ InoviMap/
 ├── gradle.properties
 ├── gradlew
 ├── gradlew.bat
-├── local.properties          # (contiene MAPS_API_KEY u otras props locales)
+├── local.properties          
 ├── secret.properties
 ├── settings.gradle.kts
-├── estructura_proyecto.txt   # archivo que generaste con tree. :contentReference[oaicite:1]{index=1}
+├── estructura_proyecto.txt   
 │
 ├── app/
 │   ├── .gitignore
@@ -205,6 +205,7 @@ If you want to have a little fun, try entering the username "danielos@gmail.com"
 - **Google Maps SDK for Android (Compose)** → Interactive map with marker and camera control.
 - **Node.js + Express.js** → Simple REST API backend for authentication and coordinate response.
 - **Ngrok** → Tunneling tool for testing backend connectivity from Android devices.
+
 
 
 
