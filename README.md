@@ -115,6 +115,7 @@ InoviMap/
 ```bash
 git clone https://github.com/daniospina9/InoviMap.git
 cd InoviMap
+```
 
 ### 🧱 2. Antes de ejecutar, necesitas una **API Key de Google Maps**.  
    Sigue estos pasos para obtenerla:
@@ -177,6 +178,7 @@ En el server.js del proyecto hay 2 usuarios configurados por defecto, esto con e
 - email: 'androidev@hotmail.com', password: 'new_project', latitude: 4.6097, longitude: -74.0817
 
 Si te quieres divertir un poco, prueba a poner el ususario "danielos@gmail.com" para que veas cómo su configuración por defecto aparece en Francia
+
 
 
 
