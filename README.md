@@ -162,7 +162,7 @@ fun provideRetrofit(): Retrofit = Retrofit.Builder()
 
 Bien, con esto ya estás listo para poner a funcionar el servidor local, pero recuerda que antes, debes tener instalado node.js en tu computador. Si ya lo tienes, debes ir a la terminal en la raíz del proyecto y correr los siguintes comandos:
 
-    ```bash
+```bash
 cd backend
 node server.js
 ```
@@ -178,6 +178,7 @@ En el server.js del proyecto hay 2 usuarios configurados por defecto, esto con e
 - email: 'androidev@hotmail.com', password: 'new_project', latitude: 4.6097, longitude: -74.0817
 
 Si te quieres divertir un poco, prueba a poner el ususario "danielos@gmail.com" para que veas cómo su configuración por defecto aparece en Francia
+
 
 
 
