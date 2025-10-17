@@ -139,7 +139,11 @@ cd InoviMap
 
     1. Ve a (https://dashboard.ngrok.com) y crea una cuenta para obtenmer gratis tu authtoken
     2. una vez tengas tu authtoken pon el siguiente comando en la terminal:
-        ``` ngrok config add authtoken YOUR_AUTHTOKEN ```
+        ```
+            ngrok config add authtoken YOUR_AUTHTOKEN
+            ngrok http 3000
+        ```
     3. 
+
 
 
