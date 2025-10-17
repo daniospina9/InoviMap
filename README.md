@@ -1,16 +1,16 @@
 # 📱 InoviMap
 
-**Prueba de Desarrollo Móvil — Inovisec**
+**Mobile Development Test — Inovisec**
 
-Este proyecto cumple los requerimientos de la prueba técnica para desarrollar un **formulario de inicio de sesión funcional** con Kotlin y Jetpack Compose, que tras un login exitoso muestra un **mapa de Google Maps** centrado en una ubicación predefinida.
+This project meets the technical test requirements for developing a **functional login form** using Kotlin and Jetpack Compose, which upon successful login displays a **Google Maps** centered on a predefined location.
 
 ---
 
-## 🧩 Objetivo General
+## 🧩 General Objective
 
-- Implementar un formulario de inicio de sesión moderno y funcional.
-- Validar las credenciales mediante un backend en Node.js (Express).
-- Mostrar un mapa interactivo con la API de Google Maps tras un inicio de sesión exitoso.
+- Implement a modern and functional login form.
+- Validate credentials using a backend in Node.js (Express).
+- Display an interactive map with the Google Maps API after a successful login.
 
 ---
 
@@ -22,7 +22,7 @@ Este proyecto cumple los requerimientos de la prueba técnica para desarrollar u
 
 ---
 
-## 🧩 Código fuente
+## 🧩 Source code
 
 <pre> ```text
 InoviMap/
@@ -116,52 +116,52 @@ InoviMap/
     └── server.js     
 ``` </pre>
 
-## ⚙️ Instrucciones para ejecutar el proyecto localmente
+## ⚙️ Instructions for running the project locally
 
-### 🧱 1. Clonar el repositorio
+### 🧱 1. Clone the repository
 
 ```bash
 git clone https://github.com/daniospina9/InoviMap.git
 cd InoviMap
 ```
 
-### 🧱 2. Antes de ejecutar, necesitas una **API Key de Google Maps**.  
-   Sigue estos pasos para obtenerla:
+### 🧱 2. Before running, you need a **Google Maps API Key**.
+   Follow these steps to obtain it:
 
 ##### 🔑 Cómo obtener tu API Key
-   1. Ve a [https://console.cloud.google.com/](https://console.cloud.google.com/).  
-   2. Inicia sesión con tu cuenta de Google.  
-   3. Crea un nuevo proyecto o selecciona uno existente.  
-   4. En el menú lateral, entra a **API y servicios → Biblioteca**.  
-   5. Busca y habilita la **"Maps SDK for Android"**.  
-   6. Luego, ve a **Credenciales → Crear credencial → Clave de API**.  
-   7. Copia la clave generada (se verá algo como `AIzaSyC-xxxxxxxxxxxxxxxx`).  
-   8. (Opcional) En “Restringir clave”, limita su uso solo para Android si deseas mayor seguridad.
+   1. Go to [https://console.cloud.google.com/](https://console.cloud.google.com/).  
+   2. Sign in with your Google account.
+   3. Create a new project or select an existing one. 
+   4. In the side menu, go to **APIs & Services → Library**.  
+   5. Search for and enable the **Maps SDK for Android**. 
+   6. Then, go to **Credentials → Create Credential → API Key**.  
+   7. Copy the generated key (it will look something like `AIzaSyC-xxxxxxxxxxxxxxxx`).
+   8. (Optional) Under “Restrict Key,” limit its use to Android only if you want greater security.
 
-### 3. ⚙️ Agregar la clave al proyecto
+### 3. ⚙️ Add the key to the project
 
-  1. Tienes que ir al "Project Files" de tu proyecto local y allí tienes que crear un "Resource Bundle" a nivel general llamado "secret.properties". De esta manera tu API_KEY va a estar protegida
-  2. dentro de "secret.properties" debes colocar la siguiente línea  de código:
+  1. You need to go to the "Project Files" of your local project and create a general-level "Resource Bundle" called "secret.properties." This way, your API_KEY will be protected.
+  2. Inside "secret.properties" you must place the following line of code:
         API_KEY_MAPS=Tu_API_KEY
 
-### 4. 🌐 Exponer el servidor con Ngrok
+### 4. 🌐 Expose the server with Ngrok
 
-    1. Ve a (https://dashboard.ngrok.com) y crea una cuenta para obtenmer gratis tu authtoken
-    2. una vez tengas tu authtoken pon el siguiente comando en la terminal:
+    1. Go to (https://dashboard.ngrok.com) and create an account to get your free authtoken.
+    2. Once you have your authtoken, enter the following command in the terminal:
 
 ```bash
 npm install g ngrok
 ```
 
-Y luego este
+and then this
     
 ```bash
 ngrok config add authtoken YOUR_AUTHTOKEN
 ngrok http 3000
 ```
 
-    3. En este punto tu servidor ya debería estar lanzado, así que tienes que ir a la respuesta de la terminal y copiar la URL pública, que está en la sección de Forwarding
-    4. Una vez tengas tu URL, debes dirigirte di (de inyección de dependencias) dentro del proyecto al módulo "ServeModule" y pegar esta URL en la inyección de Retrofit:
+    3. At this point, your server should already be running, so go to the terminal response and copy the public URL, which is in the Forwarding section.
+    4. Once you have your URL, go to the "ServeModule" module in the project and paste this URL into the Retrofit injection:
     
 ```bash
 @Singleton
@@ -172,26 +172,26 @@ fun provideRetrofit(): Retrofit = Retrofit.Builder()
 .build()
 ```
 
-### 5. 🌐 Lanzar el servidor
+### 5. 🌐 Launch the server
 
-Bien, con esto ya estás listo para poner a funcionar el servidor local, pero recuerda que antes, debes tener instalado node.js en tu computador. Si ya lo tienes, debes ir a la terminal en la raíz del proyecto y correr los siguintes comandos:
+Okay, with this, you're ready to get your local server up and running, but remember that you must first have node.js installed on your computer. If you already have it, go to the terminal in the project root and run the following commands:
 
 ```bash
 cd backend
 node server.js
 ```
 
-Y listo ya con esto puedes correr la aplicación normalmente
+And with this you can run the application normally.
 
 
-### 6. Usuarios ya creados por defecto
+### 6. Users already created by default
 
-En el server.js del proyecto hay 2 usuarios configurados por defecto, esto con el objeivo de que se compruebe un login exitoso de usuarios existentes, pero si colocásemos un usuario nuevo, este se va a crear y se va a almacenar dentro de nuestro servidor. A los nuevos usuarios se les establece una ubicación por defecto al navegar al mapa, la cual aparece con un marcador dentro de la ciudad configurada por defecto que en este caso es Bogotá. A continuación los 2 usuarios ya existentes:
+In the project's server.js, there are two default users configured to verify a successful login for existing users. However, if we add a new user, it will be created and stored on our server. New users are assigned a default location when they navigate to the map. This location appears with a marker within the default city, which in this case is Bogotá. Below are the two existing users:
 
 - email: 'danielos@gmail.com', password: '123456', latitude: 48.8566, longitude: 2.3522
 - email: 'androidev@hotmail.com', password: 'new_project', latitude: 4.6097, longitude: -74.0817
 
-Si te quieres divertir un poco, prueba a poner el ususario "danielos@gmail.com" para que veas cómo su configuración por defecto aparece en Francia
+If you want to have a little fun, try entering the username "danielos@gmail.com" to see how the default setting appears in France.
 
 ## 🛠️ Technologies Used
 - **Kotlin** → Main development language.  
@@ -205,6 +205,7 @@ Si te quieres divertir un poco, prueba a poner el ususario "danielos@gmail.com" 
 - **Google Maps SDK for Android (Compose)** → Interactive map with marker and camera control.
 - **Node.js + Express.js** → Simple REST API backend for authentication and coordinate response.
 - **Ngrok** → Tunneling tool for testing backend connectivity from Android devices.
+
 
 
 
