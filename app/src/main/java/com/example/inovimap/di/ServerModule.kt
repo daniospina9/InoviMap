@@ -19,7 +19,7 @@ object ServerModule {
     @Singleton
     @Provides
     fun provideRetrofit(): Retrofit = Retrofit.Builder()
-        .baseUrl( " https://perdurably-geognostical-savannah.ngrok-free.dev")
+        .baseUrl( "https://perdurably-geognostical-savannah.ngrok-free.dev")
         .addConverterFactory(GsonConverterFactory.create(GsonBuilder().create()))
         .build()
 

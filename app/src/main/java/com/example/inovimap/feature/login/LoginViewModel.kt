@@ -50,9 +50,10 @@ class LoginViewModel @Inject constructor(
                 } else {
                     val serverResponse = getServerResponse(email = user, password = password)
                     val messageResponse = serverResponse.message
-                    _events.send(Event.NavigateToMap)
                     _events.send(Event.ShowMessage(messageResponse))
-
+                    serverResponse.user?.let {
+                        _events.send(Event.NavigateToMap)
+                    }
                 }
             } else {
                 _events.send(Event.ShowMessage(validatedUser))

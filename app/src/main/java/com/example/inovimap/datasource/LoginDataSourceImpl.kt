@@ -3,8 +3,11 @@ package com.example.inovimap.datasource
 import com.example.inovimap.datasource.converters.toLoginResponse
 import com.example.inovimap.domain.server.models.LoginResponse
 import com.example.inovimap.remote.ServerApi
+import com.example.inovimap.remote.dtos.ErrorResponseDto
 import com.example.inovimap.remote.dtos.LoginRequestDto
+import com.google.gson.Gson
 import java.util.regex.Pattern
+import retrofit2.HttpException
 
 class LoginDataSourceImpl(
     private val api: ServerApi
@@ -30,6 +33,20 @@ class LoginDataSourceImpl(
     override suspend fun getServerResponse(email: String, password: String): LoginResponse {
         return try {
             api.login(LoginRequestDto(email = email, password = password)).toLoginResponse()
+        } catch (e: HttpException) {
+            val errorMessage = try {
+                val errorBody = e.response()?.errorBody()?.string()
+                val gson = Gson()
+                val errorResponse = gson.fromJson(errorBody, ErrorResponseDto::class.java)
+                errorResponse.error
+            } catch (_: Exception) {
+                "Error ${e.code()}: ${e.message()}"
+            }
+
+            LoginResponse(
+                message = errorMessage,
+                user = null
+            )
         } catch (e: Exception) {
             LoginResponse(
                 message = e.message.orEmpty().ifEmpty { "Ocurrió un error desconocido" },
