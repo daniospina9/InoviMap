@@ -2,6 +2,7 @@ package com.example.inovimap.feature.login
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.inovimap.domain.login.usecases.GetServerResponse
 import com.example.inovimap.domain.login.usecases.ValidateEmail
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
@@ -20,7 +21,8 @@ data class LoginState(
 
 @HiltViewModel
 class LoginViewModel @Inject constructor(
-    private val validateEmail: ValidateEmail
+    private val validateEmail: ValidateEmail,
+    private val getServerResponse: GetServerResponse
 ): ViewModel() {
 
     private val _state = MutableStateFlow(LoginState())
@@ -46,7 +48,11 @@ class LoginViewModel @Inject constructor(
                 if (password.isBlank()) {
                     _events.send(Event.ShowMessage("La contraseña no puede estar vacía"))
                 } else {
+                    val serverResponse = getServerResponse(email = user, password = password)
+                    val messageResponse = serverResponse.message
                     _events.send(Event.NavigateToMap)
+                    _events.send(Event.ShowMessage(messageResponse))
+
                 }
             } else {
                 _events.send(Event.ShowMessage(validatedUser))

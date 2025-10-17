@@ -1,8 +1,14 @@
 package com.example.inovimap.datasource
 
+import com.example.inovimap.datasource.converters.toLoginResponse
+import com.example.inovimap.domain.server.models.LoginResponse
+import com.example.inovimap.remote.ServerApi
+import com.example.inovimap.remote.dtos.LoginRequestDto
 import java.util.regex.Pattern
 
-class LoginDataSourceImpl(): LoginDataSource {
+class LoginDataSourceImpl(
+    private val api: ServerApi
+) : LoginDataSource {
 
     override suspend fun validateEmail(email: String): String? {
         val EMAIL_PATTERN =
@@ -19,5 +25,16 @@ class LoginDataSourceImpl(): LoginDataSource {
         }
 
         return null
+    }
+
+    override suspend fun getServerResponse(email: String, password: String): LoginResponse {
+        return try {
+            api.login(LoginRequestDto(email = email, password = password)).toLoginResponse()
+        } catch (e: Exception) {
+            LoginResponse(
+                message = e.message.orEmpty().ifEmpty { "Ocurrió un error desconocido" },
+                user = null
+            )
+        }
     }
 }
