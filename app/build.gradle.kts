@@ -55,6 +55,7 @@ android {
     }
     buildFeatures {
         compose = true
+        buildConfig = true
     }
 }
 
@@ -85,4 +86,8 @@ dependencies {
     //Hilt
     implementation(libs.hilt.android)
     ksp(libs.hilt.android.compiler)
+
+    //Google Maps
+    implementation(libs.maps.compose)
+    implementation(libs.play.services.maps)
 }
