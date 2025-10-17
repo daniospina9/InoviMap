@@ -6,6 +6,18 @@ app.use(express.json());
 
 const users = []; // Temporary in-memory storage
 
+(async () => {
+  const demoUsers = [
+    { email: 'danielos@gmail.com', password: '123456' },
+    { email: 'androidev@hotmail.com', password: 'new_project' },
+  ];
+
+  for (const u of demoUsers) {
+    const hashed = await bcrypt.hash(u.password, 10);
+    users.push({ email: u.email, password: hashed });
+  }
+})();
+
 // POST /login
 app.post('/login', async (req, res) => {
   const { email, password } = req.body;
