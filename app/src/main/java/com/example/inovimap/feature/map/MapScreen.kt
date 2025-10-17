@@ -20,19 +20,23 @@ fun MapScreen(
     // User location from server
     val userLocation = LatLng(latitude, longitude)
 
+    //creates and remembers the state of the map camera.
     val cameraPositionState = rememberCameraPositionState {
         position = CameraPosition.fromLatLngZoom(userLocation, 10f)
     }
 
+    //Creating the Scoreboard State
     val markerState = rememberMarkerState(position = userLocation)
 
     Scaffold { innerPadding ->
+        //GoogleMap is the @Composable component that renders the map on the screen.
         GoogleMap(
             modifier = Modifier
                 .padding(innerPadding)
                 .fillMaxSize(),
             cameraPositionState = cameraPositionState
         ) {
+            //Marker draws a marker on the map.
             Marker(
                 state = markerState,
                 title = "Your Location",

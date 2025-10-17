@@ -39,6 +39,8 @@ class LoginViewModel @Inject constructor(
         _state.update { it.copy(password = password) }
     }
 
+    //navigateToMap() validates the current fields in the UI and depending on this, it launches
+    // some kind of message or navigates to Google Maps.
     fun navigateToMap() {
         viewModelScope.launch(Dispatchers.IO) {
             val user = _state.value.user

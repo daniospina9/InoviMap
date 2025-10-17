@@ -13,6 +13,7 @@ class LoginDataSourceImpl(
     private val api: ServerApi
 ) : LoginDataSource {
 
+    //validateEmail checks whether a placed email is valid or not
     override suspend fun validateEmail(email: String): String? {
         val EMAIL_PATTERN =
             "[a-zA-Z0-9+._%\\-]{1,256}@[a-zA-Z0-9][a-zA-Z0-9\\-]{0,64}(\\.[a-zA-Z0-9][a-zA-Z0-9\\-]{0,25})+"
@@ -30,6 +31,7 @@ class LoginDataSourceImpl(
         return null
     }
 
+    //getServerResponse brings the server responses of both message and error type
     override suspend fun getServerResponse(email: String, password: String): LoginResponse {
         return try {
             api.login(LoginRequestDto(email = email, password = password)).toLoginResponse()

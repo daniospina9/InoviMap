@@ -26,6 +26,7 @@ fun NavigationHost() {
         composable<MapRoute> {
             val route = it.toRoute<MapRoute>()
             MapScreen(
+                //When navigating to MapScreen these variables are received for a new user
                 latitude = route.latitude,
                 longitude = route.longitude
             )

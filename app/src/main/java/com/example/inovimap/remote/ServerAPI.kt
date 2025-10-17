@@ -5,6 +5,7 @@ import com.example.inovimap.remote.dtos.LoginResponseDto
 import retrofit2.http.Body
 import retrofit2.http.POST
 
+//Request to the server
 interface ServerApi {
     @POST("/login")
     suspend fun login(@Body request: LoginRequestDto): LoginResponseDto

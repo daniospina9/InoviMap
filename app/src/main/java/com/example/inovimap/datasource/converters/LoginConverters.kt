@@ -5,6 +5,8 @@ import com.example.inovimap.domain.server.models.UserInfo
 import com.example.inovimap.remote.dtos.LoginResponseDto
 import com.example.inovimap.remote.dtos.UserInfoDto
 
+// In this module, remote models are converted to the models used by datasource for proper
+// management of responsibilities.
 fun UserInfoDto.toUserInfo(): UserInfo {
     return UserInfo(
         email = email,

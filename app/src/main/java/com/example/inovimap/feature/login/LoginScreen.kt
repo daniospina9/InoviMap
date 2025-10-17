@@ -43,6 +43,8 @@ fun LoginScreen(
 
     val state by viewModel.state.collectAsStateWithLifecycle()
 
+    // LaunchedEffect catches events from messages from the server or from the viewmodel,
+    // and the event of navigating to Google Maps
     LaunchedEffect(key1 = context) {
         viewModel.events.collect { event ->
             when (event) {
