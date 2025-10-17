@@ -35,6 +35,8 @@ android {
 
         buildConfigField("String", "API_KEY_MAPS", "\"${secretProperties["API_KEY_MAPS"]}\"")
 
+        // para que el manifest reconozca los cambios de gradle
+        manifestPlaceholders["MAPS_API_KEY"] = secretProperties["API_KEY_MAPS"] as String
     }
 
     buildTypes {
