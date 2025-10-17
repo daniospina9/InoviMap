@@ -134,5 +134,12 @@ cd InoviMap
   1. Tienes que ir al "Project Files" de tu proyecto local y allí tienes que crear un "Resource Bundle" a nivel general llamado "secret.properties". De esta manera tu API_KEY va a estar protegida
   2. dentro de "secret.properties" debes colocar la siguiente línea  de código:
         API_KEY_MAPS=Tu_API_KEY
-  3. 
+
+### 4. 🌐 Exponer el servidor con Ngrok
+
+    1. Ve a (https://dashboard.ngrok.com) y crea una cuenta para obtenmer gratis tu authtoken
+    2. una vez tengas tu authtoken pon el siguiente comando en la terminal:
+        ``` ngrok config add authtoken YOUR_AUTHTOKEN ```
+    3. 
+
 
