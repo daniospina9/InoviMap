@@ -37,7 +37,6 @@ google_maps_api.xml
 *.key
 
 # Build outputs
-*.apk
 *.aab
 *.ap_
 *.dex
