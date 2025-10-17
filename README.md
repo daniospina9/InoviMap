@@ -128,7 +128,7 @@ cd InoviMap
 ### 🧱 2. Before running, you need a **Google Maps API Key**.
    Follow these steps to obtain it:
 
-##### 🔑 Cómo obtener tu API Key
+##### 🔑 How to get your API Key
    1. Go to [https://console.cloud.google.com/](https://console.cloud.google.com/).  
    2. Sign in with your Google account.
    3. Create a new project or select an existing one. 
@@ -205,6 +205,7 @@ If you want to have a little fun, try entering the username "danielos@gmail.com"
 - **Google Maps SDK for Android (Compose)** → Interactive map with marker and camera control.
 - **Node.js + Express.js** → Simple REST API backend for authentication and coordinate response.
 - **Ngrok** → Tunneling tool for testing backend connectivity from Android devices.
+
 
 
 
