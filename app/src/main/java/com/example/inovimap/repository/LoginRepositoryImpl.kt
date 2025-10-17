@@ -5,13 +5,13 @@ import com.example.inovimap.domain.server.models.LoginResponse
 
 class LoginRepositoryImpl(
     private val loginDataSource: LoginDataSource
-): LoginRepository {
+) : LoginRepository {
 
     override suspend fun validateEmail(email: String): String? {
         return loginDataSource.validateEmail(email)
     }
 
     override suspend fun getServerResponse(email: String, password: String): LoginResponse {
-        return loginDataSource.getServerResponse(email =  email, password =  password)
+        return loginDataSource.getServerResponse(email = email, password = password)
     }
 }

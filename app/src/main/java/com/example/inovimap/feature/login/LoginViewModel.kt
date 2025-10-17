@@ -23,7 +23,7 @@ data class LoginState(
 class LoginViewModel @Inject constructor(
     private val validateEmail: ValidateEmail,
     private val getServerResponse: GetServerResponse
-): ViewModel() {
+) : ViewModel() {
 
     private val _state = MutableStateFlow(LoginState())
     val state = _state.asStateFlow()
@@ -36,7 +36,7 @@ class LoginViewModel @Inject constructor(
     }
 
     fun setPassword(password: String) {
-        _state.update { it.copy(password =  password) }
+        _state.update { it.copy(password = password) }
     }
 
     fun navigateToMap() {
@@ -52,7 +52,12 @@ class LoginViewModel @Inject constructor(
                     val messageResponse = serverResponse.message
                     _events.send(Event.ShowMessage(messageResponse))
                     serverResponse.user?.let {
-                        _events.send(Event.NavigateToMap)
+                        _events.send(
+                            Event.NavigateToMap(
+                                latitude = it.latitude,
+                                longitude = it.longitude
+                            )
+                        )
                     }
                 }
             } else {
@@ -61,8 +66,8 @@ class LoginViewModel @Inject constructor(
         }
     }
 
-    sealed class Event{
-        data object NavigateToMap: Event()
-        data class ShowMessage(val message: String): Event()
+    sealed class Event {
+        data class NavigateToMap(val latitude: Double, val longitude: Double) : Event()
+        data class ShowMessage(val message: String) : Event()
     }
 }

@@ -35,9 +35,13 @@ fun LoginScreen(
             when (event) {
                 is LoginViewModel.Event.NavigateToMap -> {
                     navController.navigate(
-                        MapRoute
+                        MapRoute(
+                            latitude = event.latitude,
+                            longitude = event.longitude
+                        )
                     )
                 }
+
                 is LoginViewModel.Event.ShowMessage -> {
                     Toast.makeText(context, event.message, Toast.LENGTH_SHORT).show()
                 }

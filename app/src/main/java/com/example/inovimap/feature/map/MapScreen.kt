@@ -8,18 +8,23 @@ import androidx.compose.ui.Modifier
 import com.google.android.gms.maps.model.CameraPosition
 import com.google.android.gms.maps.model.LatLng
 import com.google.maps.android.compose.GoogleMap
+import com.google.maps.android.compose.Marker
 import com.google.maps.android.compose.rememberCameraPositionState
+import com.google.maps.android.compose.rememberMarkerState
 
 @Composable
 fun MapScreen(
-
+    latitude: Double,
+    longitude: Double
 ) {
-    // Default location (set to coordinates of your choice)
-    val defaultLocation = LatLng(4.7110, -74.0721)
+    // User location from server
+    val userLocation = LatLng(latitude, longitude)
 
     val cameraPositionState = rememberCameraPositionState {
-        position = CameraPosition.fromLatLngZoom(defaultLocation, 10f)
+        position = CameraPosition.fromLatLngZoom(userLocation, 10f)
     }
+
+    val markerState = rememberMarkerState(position = userLocation)
 
     Scaffold { innerPadding ->
         GoogleMap(
@@ -27,6 +32,12 @@ fun MapScreen(
                 .padding(innerPadding)
                 .fillMaxSize(),
             cameraPositionState = cameraPositionState
-        )
+        ) {
+            Marker(
+                state = markerState,
+                title = "Your Location",
+                snippet = "Your User Location"
+            )
+        }
     }
 }

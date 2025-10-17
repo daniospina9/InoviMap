@@ -6,8 +6,8 @@ import com.example.inovimap.remote.ServerApi
 import com.example.inovimap.remote.dtos.ErrorResponseDto
 import com.example.inovimap.remote.dtos.LoginRequestDto
 import com.google.gson.Gson
-import java.util.regex.Pattern
 import retrofit2.HttpException
+import java.util.regex.Pattern
 
 class LoginDataSourceImpl(
     private val api: ServerApi

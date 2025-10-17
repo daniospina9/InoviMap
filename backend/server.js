@@ -8,13 +8,18 @@ const users = []; // Temporary in-memory storage
 
 (async () => {
   const demoUsers = [
-    { email: 'danielos@gmail.com', password: '123456' },
-    { email: 'androidev@hotmail.com', password: 'new_project' },
+    { email: 'danielos@gmail.com', password: '123456', latitude: 48.8566, longitude: 2.3522 },
+    { email: 'androidev@hotmail.com', password: 'new_project', latitude: 4.6097, longitude: -74.0817 },
   ];
 
   for (const u of demoUsers) {
     const hashed = await bcrypt.hash(u.password, 10);
-    users.push({ email: u.email, password: hashed });
+    users.push({
+      email: u.email,
+      password: hashed,
+      latitude: u.latitude,
+      longitude: u.longitude
+    });
   }
 })();
 
@@ -33,20 +38,46 @@ app.post('/login', async (req, res) => {
     if (!validPassword)
       return res.status(401).json({ error: 'Invalid credentials' });
 
-    return res.json({ message: 'Login successful', user: { email } });
+    return res.json({
+      message: 'Login successful',
+      user: {
+        email: existingUser.email,
+        latitude: existingUser.latitude,
+        longitude: existingUser.longitude
+      }
+    });
   } else {
-    // User doesn't exist → create it
+    // User doesn't exist → create it with default location (Bogotá)
     const hashedPassword = await bcrypt.hash(password, 10);
-    const newUser = { email, password: hashedPassword };
+    const defaultLatitude = 4.7110;
+    const defaultLongitude = -74.0721;
+
+    const newUser = {
+      email,
+      password: hashedPassword,
+      latitude: defaultLatitude,
+      longitude: defaultLongitude
+    };
     users.push(newUser);
 
-    return res.status(201).json({ message: 'User created successfully', user: { email } });
+    return res.status(201).json({
+      message: 'User created successfully',
+      user: {
+        email: newUser.email,
+        latitude: newUser.latitude,
+        longitude: newUser.longitude
+      }
+    });
   }
 });
 
 // Simple route to check users (for testing only)
 app.get('/users', (req, res) => {
-  res.json(users.map(u => ({ email: u.email })));
+  res.json(users.map(u => ({
+    email: u.email,
+    latitude: u.latitude,
+    longitude: u.longitude
+  })));
 });
 
 const PORT = process.env.PORT || 3000;
